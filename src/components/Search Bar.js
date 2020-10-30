@@ -2,18 +2,25 @@ import React from 'react';
 import { View, TextInput, StyleSheet, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-export default function SearchBar() {
+export default function SearchBar({ term, onTermChange }) {
   return (
     <View style={styles.backgroundStyle}>
       <Icon name="search" style={styles.iconStyle} />
-      <TextInput style={styles.inputStyle} placeholder="Search" />
+      <TextInput
+        autoCapitalize="none"
+        autoCorrect={false}
+        style={styles.inputStyle}
+        placeholder="Search"
+        value={term}
+        onChangeText={(newTerm) => onTermChange(newTerm)}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   backgroundStyle: {
-    marginTop: 16,
+    marginTop: 12,
     backgroundColor: '#d3d3d3',
     height: 60,
     borderRadius: 5,
