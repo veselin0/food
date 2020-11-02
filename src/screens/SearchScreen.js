@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/Search Bar';
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
 
-export default function SearchScreen() {
+export default function SearchScreen(props) {
+  console.log(props);
   const [term, setTerm] = useState('');
   const [searchApi, results, errorMessage] = useResults();
 
